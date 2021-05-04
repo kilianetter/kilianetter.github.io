@@ -20,7 +20,7 @@ htmltools::img(src = knitr::image_uri("./Plots/img/logos.png"),
 ### Alpha Version
 #### Sie befinden sich im Prognose Bereich der neuen **IPS-Digital** Website [https://www.ips-weizen.uni-kiel.de/](https://www.ips-weizen.uni-kiel.de/). Diese wird derzeit noch weiterentwickelt. Da sie jedoch jetzt schon einen größeren Umfang bietet, als die vorherige Implementierung der Mehltau- und Braunrostprognose wurde beschlossen, den neuen Auftritt zu aktivieren.
 
-#### Möglicherweise treten noch Darstellungsfehler auf. Unter den Browsern Firefox und Edge läuft die Seite in der aktuellen Version stabil. Bei Verwendung des Internet-Explorers oder von Chrome kann es derzeit noch zu Darstellungsproblemen kommen. Sollten solche auftreten, kann ein Wechsel zur [vereinfachten Darstellung](https://whamer.github.io/IPS-Digital_plain.html) helfen.
+#### Möglicherweise treten noch Darstellungsfehler auf. Unter den Browsern Firefox und Edge läuft die Seite in der aktuellen Version stabil. Bei Verwendung des Internet-Explorers oder von Chrome kann es derzeit noch zu Darstellungsproblemen kommen. Sollten solche auftreten, kann ein Wechsel zur [vereinfachten Darstellung](https://kilianetter.github.io/IPS-Digital_plain.html) helfen.
 
  
 
@@ -73,7 +73,7 @@ names(state_plots) <- str_replace_all(state_plots,
 
 bsselect(state_plots, type = "img", selected = "Barlt", 
          live_search = TRUE, show_tick = TRUE,
-         frame_height="85 %", dropup_auto=FALSE)
+         frame_height="85%", dropup_auto=FALSE)
 ```
      
 #### Standortbezogene Wetterbeobachtungen (Jahr)
