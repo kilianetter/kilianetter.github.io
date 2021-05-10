@@ -19,79 +19,79 @@ Alpha Version
 
 
 
-Septoria Tritici
-===================================== 
+<!-- Septoria Tritici -->
+<!-- =====================================  -->
 
 
-Row 
--------------------------------------
-    
-### Info 
-    
-Für Infektionen mit dem Erreger Septoria tritici wird die Dauer einer hohen Blattnässe als entscheidend erachtet. Die Graphiken im unteren Bereich dieser Seite stellen sowohl die Blattnässe als auch den Niederschlag für die Beprobungstandorte des IPS-Monitorings an. 
+<!-- Row  -->
+<!-- ------------------------------------- -->
 
-*Anfällige Sorten:*
+<!-- ### Info  -->
 
-Die **orangefarbenen Balken** zeigen dabei eine Blattnässe an, welche länger als 36 Stunden über 98 % lag. 
+<!-- Für Infektionen mit dem Erreger Septoria tritici wird die Dauer einer hohen Blattnässe als entscheidend erachtet. Die Graphiken im unteren Bereich dieser Seite stellen sowohl die Blattnässe als auch den Niederschlag für die Beprobungstandorte des IPS-Monitorings an.  -->
 
-*Weniger anfällige Sorten:*
+<!-- *Anfällige Sorten:* -->
 
-**Rote Bereiche** symbolisieren eine entsprechende Befeuchtung über mehr als 48 Stunden.
+<!-- Die **orangefarbenen Balken** zeigen dabei eine Blattnässe an, welche länger als 36 Stunden über 98 % lag.  -->
 
+<!-- *Weniger anfällige Sorten:* -->
 
-### Karte
-    
-```{r}
-library(sf)
-locations <- read_sf("../Dont_Upload_Data/raw_data/spatial/standorte.gpkg") %>% 
-  dplyr::select(Standort)
-
-plz <- read_sf("../Dont_Upload_Data/raw_data/spatial/plz5sh-stellig.gpkg")
-Postleitzahlbezirke <- plz["plz"] 
-library(mapview)
-
-mapview(locations,col.regions="black",legend=FALSE)
-
-```
+<!-- **Rote Bereiche** symbolisieren eine entsprechende Befeuchtung über mehr als 48 Stunden. -->
 
 
-Row{.tabset .tabset-fade}
--------------------------------------
+<!-- ### Karte -->
+
+<!-- ```{r} -->
+<!-- library(sf) -->
+<!-- locations <- read_sf("../Dont_Upload_Data/raw_data/spatial/standorte.gpkg") %>%  -->
+<!--   dplyr::select(Standort) -->
+
+<!-- plz <- read_sf("../Dont_Upload_Data/raw_data/spatial/plz5sh-stellig.gpkg") -->
+<!-- Postleitzahlbezirke <- plz["plz"]  -->
+<!-- library(mapview) -->
+<!-- mapviewOptions(fgb = FALSE) -->
+<!-- mapview(fgb = FALSE, locations,col.regions="black",legend=FALSE) -->
+
+<!-- ``` -->
 
 
-### Standortbezogene Wetterbeobachtungen (Woche)
-```{r}
+<!-- Row{.tabset .tabset-fade} -->
+<!-- ------------------------------------- -->
 
-library(stringr)
-#devtools::install_github("walkerke/bsselectR")
-library(bsselectR)
 
-state_plots <- paste0(list.files("./Plots/septoria_tritici", pattern = "_w.png",full.names = TRUE))
-names(state_plots) <- str_replace_all(state_plots, 
-                                      c("\\_w.png" = "", 
-                                        "./Plots/septoria_tritici/" = ""))
+<!-- ### Standortbezogene Wetterbeobachtungen (Woche) -->
+<!-- ```{r} -->
 
-bsselect(state_plots, type = "img", selected = "Barlt", 
-         live_search = TRUE, show_tick = TRUE,
-         frame_height="85 %", dropup_auto=FALSE)
-```
-     
-### Standortbezogene Wetterbeobachtungen (Jahr)
-```{r}
+<!-- library(stringr) -->
+<!-- #devtools::install_github("walkerke/bsselectR") -->
+<!-- library(bsselectR) -->
 
-library(stringr)
-#devtools::install_github("walkerke/bsselectR")
-library(bsselectR)
+<!-- state_plots <- paste0(list.files("./Plots/septoria_tritici", pattern = "_w.png",full.names = TRUE)) -->
+<!-- names(state_plots) <- str_replace_all(state_plots,  -->
+<!--                                       c("\\_w.png" = "",  -->
+<!--                                         "./Plots/septoria_tritici/" = "")) -->
 
-state_plots <- paste0(list.files("./Plots/septoria_tritici", pattern = "_a.png",full.names = TRUE))
-names(state_plots) <- str_replace_all(state_plots, 
-                                      c("\\_a.png" = "", 
-                                        "./Plots/septoria_tritici/" = ""))
+<!-- bsselect(state_plots, type = "img", selected = "Barlt",  -->
+<!--          live_search = TRUE, show_tick = TRUE, -->
+<!--          frame_height="85%", dropup_auto=FALSE) -->
+<!-- ``` -->
 
-bsselect(state_plots, type = "img", selected = "Barlt", 
-         live_search = TRUE, show_tick = TRUE,
-         frame_height="85 %", dropup_auto=FALSE)
-``` 
+<!-- ### Standortbezogene Wetterbeobachtungen (Jahr) -->
+<!-- ```{r} -->
+
+<!-- library(stringr) -->
+<!-- #devtools::install_github("walkerke/bsselectR") -->
+<!-- library(bsselectR) -->
+
+<!-- state_plots <- paste0(list.files("./Plots/septoria_tritici", pattern = "_a.png",full.names = TRUE)) -->
+<!-- names(state_plots) <- str_replace_all(state_plots,  -->
+<!--                                       c("\\_a.png" = "",  -->
+<!--                                         "./Plots/septoria_tritici/" = "")) -->
+
+<!-- bsselect(state_plots, type = "img", selected = "Barlt",  -->
+<!--          live_search = TRUE, show_tick = TRUE, -->
+<!--          frame_height="85%", dropup_auto=FALSE) -->
+<!-- ```  -->
 
 
 
@@ -126,11 +126,13 @@ url_link = "./Plots/powdery_mildew/powdery_mildew_pred.mp4")
 ### Karte
     
 ```{r}
+library(sf)
 plz <- read_sf("../Dont_Upload_Data/raw_data/spatial/plz5sh-stellig.gpkg")
 Postleitzahlbezirke <- plz["plz"] 
 
 library(mapview)
-mapview(Postleitzahlbezirke, alpha=0.5, col.regions = "grey40",legend=FALSE)
+mapviewOptions(fgb = FALSE)
+mapview(fgb = FALSE, Postleitzahlbezirke, alpha=0.5, col.regions = "grey40",legend=FALSE)
 ```
 
 
@@ -153,7 +155,7 @@ names(state_plots) <- str_replace_all(state_plots,
 
 bsselect(state_plots, type = "img", selected = "PLZ_25870", 
          live_search = TRUE, show_tick = TRUE,
-         frame_height="85 %", dropup_auto=FALSE)
+         frame_height="85%", dropup_auto=FALSE)
 ```
       
   
@@ -172,7 +174,7 @@ names(state_plots) <- str_replace_all(state_plots,
 
 bsselect(state_plots, type = "img", selected = "PLZ_25870", 
          live_search = TRUE, show_tick = TRUE,
-         frame_height="85 %", dropup_auto=FALSE)
+         frame_height="85%", dropup_auto=FALSE)
 ```
  
 
@@ -209,7 +211,8 @@ plz <- read_sf("../Dont_Upload_Data/raw_data/spatial/plz5sh-stellig.gpkg")
 Postleitzahlbezirke <- plz["plz"] 
 
 library(mapview)
-mapview(Postleitzahlbezirke, alpha=0.5, col.regions = "grey40",legend=FALSE)
+mapviewOptions(fgb = FALSE)
+mapview(fgb = FALSE, Postleitzahlbezirke, alpha=0.5, col.regions = "grey40",legend=FALSE)
 ```
 
 
@@ -233,7 +236,7 @@ names(state_plots) <- str_replace_all(state_plots,
 
 bsselect(state_plots, type = "img", selected = "PLZ_25870", 
          live_search = TRUE, show_tick = TRUE,
-         frame_height="85 %", dropup_auto=FALSE)
+         frame_height="85%", dropup_auto=FALSE)
 ```
 
 ### Behandelt
@@ -251,7 +254,7 @@ names(state_plots) <- str_replace_all(state_plots,
 
 bsselect(state_plots, type = "img", selected = "PLZ_25870", 
          live_search = TRUE, show_tick = TRUE,
-         frame_height="85 %", dropup_auto=FALSE)
+         frame_height="85%", dropup_auto=FALSE)
 ```
 
 
